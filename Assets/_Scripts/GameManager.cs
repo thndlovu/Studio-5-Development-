@@ -17,6 +17,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         health = 3;
         heart1.gameObject.SetActive(true);
         heart2.gameObject.SetActive(true);
@@ -81,7 +82,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         // add camera shake here
         currentBrickCount--;
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
-        if(currentBrickCount == 0) SceneHandler.Instance.LoadNextScene();
+        if (currentBrickCount == 0) SceneHandler.Instance.LoadNextScene();
     }
 
     public void KillBall()
