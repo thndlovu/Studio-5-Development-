@@ -5,9 +5,56 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int maxLives = 3;
     [SerializeField] private Ball ball;
     [SerializeField] private Transform bricksContainer;
+    [Header("Hearts and Game Over")]
+    [SerializeField] private GameObject heart1;
+    [SerializeField] private GameObject heart2;
+    [SerializeField] private GameObject heart3;
+    // [SerializeField] private GameObject gameOver;
 
     private int currentBrickCount;
     private int totalBrickCount;
+    public static int health;
+
+    private void Start()
+    {
+        health = 3;
+        heart1.gameObject.SetActive(true);
+        heart2.gameObject.SetActive(true);
+        heart3.gameObject.SetActive(true);
+        // gameOver.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (health > 3) health = 3;
+
+        switch (health)
+        {
+            case 3:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(true);
+                heart3.gameObject.SetActive(true);
+                break;
+            case 2:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(true);
+                heart3.gameObject.SetActive(false);
+                break;
+            case 1:
+                heart1.gameObject.SetActive(true);
+                heart2.gameObject.SetActive(false);
+                heart3.gameObject.SetActive(false);
+                break;
+            case 0:
+                heart1.gameObject.SetActive(false);
+                heart2.gameObject.SetActive(false);
+                heart3.gameObject.SetActive(false);
+                // gameOver.gameObject.SetActive(true);
+                Time.timeScale = 0;
+                break;
+        }
+
+    }
 
     private void OnEnable()
     {
