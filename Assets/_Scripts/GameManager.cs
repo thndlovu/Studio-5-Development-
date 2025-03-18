@@ -9,7 +9,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
     [SerializeField] private GameObject heart3;
-    // [SerializeField] private GameObject gameOver;
+    [SerializeField] private GameObject gameOver;
 
     private int currentBrickCount;
     private int totalBrickCount;
@@ -21,7 +21,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         heart1.gameObject.SetActive(true);
         heart2.gameObject.SetActive(true);
         heart3.gameObject.SetActive(true);
-        // gameOver.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -49,7 +49,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
                 heart1.gameObject.SetActive(false);
                 heart2.gameObject.SetActive(false);
                 heart3.gameObject.SetActive(false);
-                // gameOver.gameObject.SetActive(true);
+                gameOver.gameObject.SetActive(true);
                 Time.timeScale = 0;
                 break;
         }
