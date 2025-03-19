@@ -13,7 +13,10 @@ public class CoinCounterUI : MonoBehaviour
     private float containerInitPosition;
     private float moveAmount;
 
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     private void Start()
     {
