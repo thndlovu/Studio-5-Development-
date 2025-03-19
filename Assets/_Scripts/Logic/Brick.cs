@@ -5,12 +5,6 @@ public class Brick : MonoBehaviour
 {
     private Coroutine destroyRoutine = null;
 
-    public void start(){
-        if(AudioManager.instance != null){
-            AudioManager.instance.playSound(AudioManager.instance.shootClip);
-        }
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         if(AudioManager.instance != null){

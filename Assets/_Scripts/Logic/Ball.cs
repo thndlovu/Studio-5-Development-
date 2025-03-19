@@ -22,6 +22,10 @@ public class Ball : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.AddForce(directionToFire * returnSpeed, ForceMode.Impulse);
+
+            if(AudioManager.instance != null){
+            AudioManager.instance.playSound(AudioManager.instance.shootClip);
+        }
         }
     }
 
@@ -45,5 +49,9 @@ public class Ball : MonoBehaviour
         rb.AddForce(transform.forward * ballLaunchSpeed, ForceMode.Impulse);
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         isBallActive = true;
+
+        if(AudioManager.instance != null){
+            AudioManager.instance.playSound(AudioManager.instance.shootClip);
+        }
     }
 }
