@@ -9,9 +9,12 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int score=0;
     [SerializeField] private CoinCounterUI coinCounter;
     [SerializeField] private TextMeshProUGUI scoreText;
+   
 
     private int currentBrickCount;
     private int totalBrickCount;
+
+
 
     private void OnEnable()
     {
@@ -39,6 +42,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         currentBrickCount--;
         IncreaseScore();
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
+
         if(currentBrickCount == 0) SceneHandler.Instance.LoadNextScene();
     }
 
@@ -52,8 +56,15 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     public void IncreaseScore()
     {
-        score++;
+    score++;
+    if (coinCounter != null)
+    {
         coinCounter.UpdateScore(score);
-
     }
+    else
+    {
+        Debug.LogError("coinCounter is null! Make sure it's assigned in the Inspector or initialized correctly.");
+    }
+}
+
 }

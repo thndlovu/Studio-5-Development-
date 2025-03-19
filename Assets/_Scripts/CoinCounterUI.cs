@@ -13,6 +13,8 @@ public class CoinCounterUI : MonoBehaviour
     private float containerInitPosition;
     private float moveAmount;
 
+
+
     private void Start()
     {
         Canvas.ForceUpdateCanvases();
