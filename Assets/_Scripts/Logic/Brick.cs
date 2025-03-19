@@ -5,8 +5,18 @@ public class Brick : MonoBehaviour
 {
     private Coroutine destroyRoutine = null;
 
+    public void start(){
+        if(AudioManager.instance != null){
+            AudioManager.instance.playSound(AudioManager.instance.shootClip);
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
+        if(AudioManager.instance != null){
+            AudioManager.instance.playSound(AudioManager.instance.explosionClip);
+        }
+
         if (destroyRoutine != null) return;
         if (!other.gameObject.CompareTag("Ball")) return;
         destroyRoutine = StartCoroutine(DestroyWithDelay());
