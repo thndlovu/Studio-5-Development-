@@ -10,6 +10,7 @@ public class PaddleController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         rb = GetComponent<Rigidbody>();
     }
 
