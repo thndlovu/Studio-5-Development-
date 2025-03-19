@@ -2211,7 +2211,6 @@ MonoBehaviour:
   maxLives: 3
   ball: {fileID: 4561635119993004754}
   bricksContainer: {fileID: 796630123}
-  score: 0
   coinCounter: {fileID: 2139894092}
   scoreText: {fileID: 2139894093}
 --- !u!1001 &1708692028
@@ -2404,6 +2403,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2484861581678842665, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484861581678842665, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484861581678842665, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484861581678842665, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484861581678842665, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484861581678842665, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3473112348242728609, guid: 95ddf331f9211904097bd17033c86605, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2418,7 +2441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3473112348242728609, guid: 95ddf331f9211904097bd17033c86605, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3473112348242728609, guid: 95ddf331f9211904097bd17033c86605, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2511,6 +2534,22 @@ PrefabInstance:
     - target: {fileID: 7836381775423506822, guid: 95ddf331f9211904097bd17033c86605, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940923310067524409, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940923310067524409, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940923310067524409, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036532953602620848, guid: 95ddf331f9211904097bd17033c86605, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8919074847507665640, guid: 95ddf331f9211904097bd17033c86605, type: 3}
       propertyPath: m_AnchorMax.y

@@ -6,13 +6,15 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int maxLives = 3;
     [SerializeField] private Ball ball;
     [SerializeField] private Transform bricksContainer;
-    [SerializeField] private int score=0;
+    [SerializeField] private static int score=0;
     [SerializeField] private CoinCounterUI coinCounter;
     [SerializeField] private TextMeshProUGUI scoreText;
    
 
     private int currentBrickCount;
     private int totalBrickCount;
+
+
 
 
 
