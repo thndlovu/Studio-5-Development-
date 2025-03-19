@@ -789,9 +789,10 @@ MonoBehaviour:
   maxLives: 3
   ball: {fileID: 2054714181}
   bricksContainer: {fileID: 1170594424}
-  heart1: {fileID: 1597946722}
-  heart2: {fileID: 1496933241}
-  heart3: {fileID: 1707768604}
+  hearts:
+  - {fileID: 1597946722}
+  - {fileID: 1496933241}
+  - {fileID: 1707768604}
   gameOver: {fileID: 562379390}
 --- !u!1 &393537071
 GameObject:
