@@ -2002,9 +2002,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 1529230710}
   ambientSource: {fileID: 1529230709}
-  ambientClip: {fileID: 8300000, guid: e318c1618a1444c2da7e36666048bada, type: 3}
+  ambientClip: {fileID: 8300000, guid: f5ee21cf8fb714d6492f4bd36526832c, type: 3}
   shootClip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
-  explosionClip: {fileID: 8300000, guid: afea96fc4f628471fb80749b1a77f76c, type: 3}
+  explosionClip: {fileID: 8300000, guid: 56e18f723ce814873b93dd737aa16aba, type: 3}
 --- !u!4 &1529230712
 Transform:
   m_ObjectHideFlags: 0
