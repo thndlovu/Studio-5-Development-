@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : SingletonMonoBehavior<GameManager>
 {
@@ -6,9 +7,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private Ball ball;
     [SerializeField] private Transform bricksContainer;
     [Header("Hearts and Game Over")]
-    [SerializeField] private GameObject heart1;
-    [SerializeField] private GameObject heart2;
-    [SerializeField] private GameObject heart3;
+    [SerializeField] private List<GameObject>hearts;
     [SerializeField] private GameObject gameOver;
 
     private int currentBrickCount;
@@ -19,46 +18,37 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         Time.timeScale = 1.0f;
         health = 3;
-        heart1.gameObject.SetActive(true);
-        heart2.gameObject.SetActive(true);
-        heart3.gameObject.SetActive(true);
+        UpdateHealth();
         gameOver.gameObject.SetActive(false);
     }
 
     // Video reference for Heart (health) code:
     // https://www.youtube.com/watch?v=LsUiJItfzxU
+    // Modularize heart code to handle any number of lives
+    // first sets all active hearts to false
+    // then enables them based on health count
 
-    private void Update()
+    private void UpdateHealth()
     {
-        if (health > 3) health = 3;
+        if (health > maxLives) health = maxLives;
 
-        switch (health)
+        foreach (GameObject heart in hearts)
         {
-            case 3:
-                heart1.gameObject.SetActive(true);
-                heart2.gameObject.SetActive(true);
-                heart3.gameObject.SetActive(true);
-                break;
-            case 2:
-                heart1.gameObject.SetActive(true);
-                heart2.gameObject.SetActive(true);
-                heart3.gameObject.SetActive(false);
-                break;
-            case 1:
-                heart1.gameObject.SetActive(true);
-                heart2.gameObject.SetActive(false);
-                heart3.gameObject.SetActive(false);
-                break;
-            case 0:
-                heart1.gameObject.SetActive(false);
-                heart2.gameObject.SetActive(false);
-                heart3.gameObject.SetActive(false);
-                gameOver.gameObject.SetActive(true);
-                Time.timeScale = 0;
-                break;
+            heart.SetActive(false);
         }
 
+        for (int i = 0; i < health; i++)
+        {
+           hearts[i].SetActive(true);
+        }
+
+        if (health == 0)
+        {
+            Time.timeScale = 0f;
+            gameOver.gameObject.SetActive(true);
+        }
     }
+
     private void OnEnable()
     {
         InputHandler.Instance.OnFire.AddListener(FireBall);
@@ -87,9 +77,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     }
     public void KillBall()
     {
-        maxLives--;
+        health--;
         // update lives on HUD here
-        // game over UI if maxLives < 0, then exit to main menu after delay
+        UpdateHealth();
         ball.ResetBall();
     }
 }
