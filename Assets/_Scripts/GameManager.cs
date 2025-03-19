@@ -25,6 +25,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         gameOver.gameObject.SetActive(false);
     }
 
+    // Video reference for Heart (health) code:
+    // https://www.youtube.com/watch?v=LsUiJItfzxU
+
     private void Update()
     {
         if (health > 3) health = 3;
@@ -56,7 +59,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         }
 
     }
-
     private void OnEnable()
     {
         InputHandler.Instance.OnFire.AddListener(FireBall);
@@ -74,7 +76,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         ball.FireBall();
     }
-
     public void OnBrickDestroyed(Vector3 position)
     {
         // fire audio here
@@ -84,7 +85,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
         if (currentBrickCount == 0) SceneHandler.Instance.LoadNextScene();
     }
-
     public void KillBall()
     {
         maxLives--;

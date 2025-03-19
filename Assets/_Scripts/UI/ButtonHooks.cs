@@ -5,6 +5,7 @@ public class ButtonHooks : MonoBehaviour
 {
     public void LoadNextScene()
     {
+        Time.timeScale = 1.0f;
         SceneHandler.Instance.LoadNextScene();
     }
 
@@ -17,6 +18,6 @@ public class ButtonHooks : MonoBehaviour
     public void ExitToMenu()
     {
         Time.timeScale = 1.0f;
-        SceneHandler.Instance.LoadMenuScene();
+        SceneManager.LoadScene("_Preload");
     }
 }

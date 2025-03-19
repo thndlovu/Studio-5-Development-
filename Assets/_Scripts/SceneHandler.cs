@@ -20,6 +20,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     protected override void Awake()
     {
         base.Awake();
+        Time.timeScale = 1.0f;
         initXPosition = transitionCanvas.transform.localPosition.x;
         SceneManager.LoadScene(menuScene);
         SceneManager.sceneLoaded += OnSceneLoad;
@@ -34,10 +35,12 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     {
         if(nextLevelIndex >= levels.Count)
         {
+            Time.timeScale = 1.0f;
             LoadMenuScene();
         }
         else
         {
+            Time.timeScale = 1.0f;
             transitionCanvas.DOLocalMoveX(initXPosition + transitionCanvas.rect.width, animationDuration).SetEase(animationType);
             StartCoroutine(LoadSceneAfterTransition(levels[nextLevelIndex]));
             nextLevelIndex++;
@@ -46,6 +49,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
 
     public void LoadMenuScene()
     {
+        Time.timeScale = 1.0f;
         transitionCanvas.DOLocalMoveX(initXPosition + transitionCanvas.rect.width, animationDuration).SetEase(animationType);
         StartCoroutine(LoadSceneAfterTransition(menuScene));
         nextLevelIndex = 0;

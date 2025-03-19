@@ -12,6 +12,9 @@ public class KillZone : MonoBehaviour
         killZoneScreen();
     }
 
+    // Video reference for screen red trigger
+    // https://www.youtube.com/watch?v=d9FaI28Yf9A
+
     private void Update()
     {
         if (redScreen != null)
