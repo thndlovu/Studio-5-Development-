@@ -31,6 +31,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         // fire audio here
         // implement particle effect here
+        GameObject explosionPrefab = Resources.Load<GameObject>("BrickExplosion");
+        GameObject explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        Destroy(explosion, 1f);
         // add camera shake here
         currentBrickCount--;
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
