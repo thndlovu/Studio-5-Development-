@@ -20,7 +20,6 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     protected override void Awake()
     {
         base.Awake();
-        Time.timeScale = 1.0f;
         initXPosition = transitionCanvas.transform.localPosition.x;
         SceneManager.LoadScene(menuScene);
         SceneManager.sceneLoaded += OnSceneLoad;
